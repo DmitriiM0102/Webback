@@ -1,6 +1,7 @@
 <style>
     div.form{
     max-width:960px;
+    text-align: center;
     margin:0 auto;
     background-color: #bbbb;}
 </style>
@@ -24,18 +25,18 @@
         <br>
 
         <label>Ваш пол:</label><br>
-        <input type="radio" name="g" value="m">Мужчина
-        <input type="radio" name="g" value="w">Женщина<br>
+        <input type="radio" name="g" value="M">Мужчина
+        <input type="radio" name="g" value="W">Женщина<br>
 
         <label>Количество конечностей:</label><br>
-        <input type="radio" name="limb">0
-        <input type="radio" name="limb">1
-        <input type="radio" name="limb">2
-        <input type="radio" name="limb">3
-        <input type="radio" name="limb">4<br>
+        <input type="radio" name="limb" value="0">0
+        <input type="radio" name="limb" value="1">1
+        <input type="radio" name="limb" value="2">2
+        <input type="radio" name="limb" value="3">3
+        <input type="radio" name="limb" value="4">4<br>
 
         <label>Список сверхспособностей:</label><br>
-        <select name="sp[]" multiple="multiple">
+        <select name="sp[]" multiple>
             <option value="immortal">Бессмертие</option>
             <option value="ghost">Прохождение сквозь стены</option>
             <option value="levitation">Левитация</option>
