@@ -51,7 +51,7 @@ $user = 'u47536';
 $pass = '4040214';
 $db = new PDO('mysql:host=localhost;dbname=u47536', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 try {
-  $stmt = $db->prepare("INSERT INTO application VALUES (:n, :m, :y, :s, :l, :b)");
+  $stmt = $db->prepare("INSERT INTO application SET name=:n, email=:m, year=:y, sex=:s, limb=:l, bio=:b");
   $stmt->bindParam(':n', $_POST['name']);
   $stmt->bindParam(':m', $_POST['email']);
   $stmt->bindParam(':y', $_POST['year']);
@@ -60,7 +60,7 @@ try {
   $stmt->bindParam(':b', $_POST['bio']);
   $stmt -> execute();
   $id= $db->lastInsertId();
-  $st= $db->prepare("INSERT INTO powers(name_p,id) VALUES(:n,:ip)");
+  $st= $db->prepare("INSERT INTO powers SET name_p=:n,id=:ip");
   $st->bindParam(':ip', $id);
   foreach ($_POST['sp'] as $powa){
     $st->bindParam(':n', $powa);
