@@ -51,19 +51,19 @@ $user = 'u47536';
 $pass = '4040214';
 $db = new PDO('mysql:host=localhost;dbname=u47536', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 try {
-  $stmt = $db->prepare("INSERT INTO application SET name=:n, email=:m, year=:y, sex=:s, limb=:l, bio=:b");
-  $stmt->bindParam(':n', $_POST['name']);
-  $stmt->bindParam(':m', $_POST['email']);
-  $stmt->bindParam(':y', $_POST['year']);
-  $stmt->bindParam(':s', $_POST['g']);
-  $stmt->bindParam(':l', $_POST['limb']);
-  $stmt->bindParam(':b', $_POST['bio']);
+  $stmt = $db->prepare("INSERT INTO application SET name=:name, email=:email, year=:year, sex=:sex, limb=:limb, bio=:bio");
+  $stmt->bindParam(':name', $_POST['name']);
+  $stmt->bindParam(':email', $_POST['email']);
+  $stmt->bindParam(':year', $_POST['year']);
+  $stmt->bindParam(':sex', $_POST['g']);
+  $stmt->bindParam(':limb', $_POST['limb']);
+  $stmt->bindParam(':bio', $_POST['bio']);
   $stmt -> execute();
   $id= $db->lastInsertId();
-  $st= $db->prepare("INSERT INTO powers SET name_p=:n,id=:ip");
-  $st->bindParam(':ip', $id);
+  $st= $db->prepare("INSERT INTO powers SET name_p=:name_p,id=:id");
+  $st->bindParam(':id', $id);
   foreach ($_POST['sp'] as $powa){
-    $st->bindParam(':n', $powa);
+    $st->bindParam(':name_p', $powa);
     $st->execute();
   }
 }
