@@ -37,9 +37,9 @@
 
         <label>Список сверхспособностей:</label><br>
         <select name="sp[]" multiple>
-            <option value="immortal">Бессмертие</option>
-            <option value="ghost">Прохождение сквозь стены</option>
-            <option value="levitation">Левитация</option>
+            <option value="Бессмертие">Бессмертие</option>
+            <option value="Прохождение сквозь стены">Прохождение сквозь стены</option>
+            <option value="Левитация">Левитация</option>
         </select>
         <br>
 
