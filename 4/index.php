@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['bio'] = !empty($_COOKIE['bio_error']);
   $errors['contract'] = !empty($_COOKIE['contract_error']);
 
-  if ($errors['fio']) {
+  if ($errors['name']) {
     $messages[] = '<div class="error">Заполните имя!</div>';
   }
   if ($errors['mail']) {
@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if ($errors['year']) {
     $messages[] = '<div class="error">Выберите год рождения!</div>';
   }
-  if ($errors['sex']) {
+  if ($errors['g']) {
     $messages[] = '<div class="error">Выберите пол!</div>';
   }
   if ($errors['limb']) {
     $messages[] = '<div class="error">Выберите количество ваших конечностей!</div>';
   }
-  if ($errors['powers']) {
+  if ($errors['sp']) {
     $messages[] = '<div class="error">Выберите хотя бы одну суперспособность!</div>';
   }
   if ($errors['contract']) {
