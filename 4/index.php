@@ -17,22 +17,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   $errors['bio'] = !empty($_COOKIE['bio_error']);
   $errors['contract'] = !empty($_COOKIE['contract_error']);
 
-  if ($errors['fio']) {
+  if ($errors['name']) {
     $messages[] = '<div class="error">Заполните имя!</div>';
   }
-  if ($errors['mail']) {
+  if ($errors['email']) {
     $messages[] = '<div class="error">Заполните почту!</div>';
   }
   if ($errors['year']) {
     $messages[] = '<div class="error">Выберите год рождения!</div>';
   }
-  if ($errors['sex']) {
+  if ($errors['g']) {
     $messages[] = '<div class="error">Выберите пол!</div>';
   }
   if ($errors['limb']) {
     $messages[] = '<div class="error">Выберите количество ваших конечностей!</div>';
   }
-  if ($errors['powers']) {
+  if ($errors['sp']) {
     $messages[] = '<div class="error">Выберите хотя бы одну суперспособность!</div>';
   }
   if ($errors['contract']) {
@@ -157,7 +157,7 @@ $user = 'u47536';
 $pass = '4040214';
 $db = new PDO('mysql:host=localhost;dbname=u47536', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 try {
-  $stmt = $db->prepare("INSERT INTO application SET name=:name, email=:email, year=:year, sex=:sex, limb=:limb, bio=:bio");
+  $stmt = $db->prepare("INSERT INTO application SET name=:name, email=:email, year=:year, sex=:g, limb=:limb, bio=:bio");
   $stmt->bindParam(':name', $_POST['name']);
   $stmt->bindParam(':email', $_POST['email']);
   $stmt->bindParam(':year', $_POST['year']);
