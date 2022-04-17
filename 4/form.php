@@ -22,7 +22,7 @@
         <input name="name" <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $values['name']; ?>" ><br>
 
         <label>Введите свой адрес электронной почты (Email):</label><br>
-        <input name="email" type="email" <?php if ($errors['mail']) {print 'class="error"';} ?> value="<?php print $values['mail']; ?>" ><br>
+        <input name="email" type="email" <?php if ($errors['mail']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>" ><br>
 
         <label>Дата рождения:</label><br>
         <select name="year">
@@ -64,8 +64,8 @@
         <br>
 
         <label>С контрактом ознакомлены?</label><br>
-        <div <?php if ($errors['privacy']) {print 'class="error"';} ?>>
-            <input type="checkbox" name="check" <?php if($values['privacy']==TRUE){print 'checked';} ?>>С контрактом ознакомлен
+        <div <?php if ($errors['contract']) {print 'class="error"';} ?>>
+            <input type="checkbox" name="check" <?php if($values['contract']==TRUE){print 'checked';} ?>>С контрактом ознакомлен
         </div>
         <br>
 

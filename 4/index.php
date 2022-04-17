@@ -157,7 +157,7 @@ $user = 'u47536';
 $pass = '4040214';
 $db = new PDO('mysql:host=localhost;dbname=u47536', $user, $pass, array(PDO::ATTR_PERSISTENT => true));
 try {
-  $stmt = $db->prepare("INSERT INTO application SET name=:name, email=:email, year=:year, sex=:sex, limb=:limb, bio=:bio");
+  $stmt = $db->prepare("INSERT INTO application SET name=:name, email=:email, year=:year, sex=:g, limb=:limb, bio=:bio");
   $stmt->bindParam(':name', $_POST['name']);
   $stmt->bindParam(':email', $_POST['email']);
   $stmt->bindParam(':year', $_POST['year']);
