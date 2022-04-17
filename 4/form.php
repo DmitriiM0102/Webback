@@ -22,7 +22,7 @@
         <input name="name" <?php if ($errors['name']) {print 'class="error"';} ?> value="<?php print $values['name']; ?>" ><br>
 
         <label>Введите свой адрес электронной почты (Email):</label><br>
-        <input name="email" type="email" <?php if ($errors['mail']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>" ><br>
+        <input name="email" type="email" <?php if ($errors['email']) {print 'class="error"';} ?> value="<?php print $values['email']; ?>" ><br>
 
         <label>Дата рождения:</label><br>
         <select name="year">
@@ -53,9 +53,9 @@
 
         <label>Список сверхспособностей:</label><br>
         <select name="sp[]" multiple <?php if ($errors['sp']) {print 'class="error"';} ?>>
-            <option value="Бессмертие" <?php if($values['']==1){print 'selected';} ?>>Бессмертие</option>
-            <option value="Прохождение сквозь стены" <?php if($values['']==1){print 'selected';} ?>>Прохождение сквозь стены</option>
-            <option value="Левитация" <?php if($values['']==1){print 'selected';} ?>>Левитация</option>
+            <option value="Бессмертие" <?php if($values['immortal']==1){print 'selected';} ?>>Бессмертие</option>
+            <option value="Прохождение сквозь стены" <?php if($values['ghost']==1){print 'selected';} ?>>Прохождение сквозь стены</option>
+            <option value="Левитация" <?php if($values['levitation']==1){print 'selected';} ?>>Левитация</option>
         </select>
         <br>
 

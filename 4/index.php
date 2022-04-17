@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
   if ($errors['name']) {
     $messages[] = '<div class="error">Заполните имя!</div>';
   }
-  if ($errors['mail']) {
+  if ($errors['email']) {
     $messages[] = '<div class="error">Заполните почту!</div>';
   }
   if ($errors['year']) {
