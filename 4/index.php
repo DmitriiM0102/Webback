@@ -65,7 +65,7 @@ else{
   setcookie('name_value', $_POST['name'], time() + 12*30 * 24 * 60 * 60);
   setcookie('name_error','',100000);
 }
-if (empty($_POST['email']) or !filter_var($_POST['mail],FILTER_VALIDATE_EMAIL'])) {
+if (empty($_POST['email']) or !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
   setcookie('email_error', '1', time() + 24 * 60 * 60);
   setcookie('email_value', '', 100000);
   $errors = TRUE;
