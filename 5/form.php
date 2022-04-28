@@ -4,6 +4,9 @@
     text-align: center;
     margin:0 auto;
     background-color: #bbbb;}
+    .error{
+        border: 2px solid red;
+    }
 </style>
 <body>
     <?php
