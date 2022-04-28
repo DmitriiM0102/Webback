@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
       $values['name']=$inf[0]['name'];
       $values['email']=$inf[0]['email'];
       $values['year']=$inf[0]['year'];
-      $values['sex']=$inf[0]['sex'];
+      $values['g']=$inf[0]['sex'];
       $values['limb']=$inf[0]['limb'];
       $values['bio']=$inf[0]['bio'];
 
@@ -227,8 +227,9 @@ else{
   setcookie('bio_error', '', 100000);
   setcookie('contract_error', '', 100000);
 }
-if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login'])) {
+if (!$errors and !empty($_COOKIE[session_name()]) && !empty($_SESSION['login'])) {
   include('connect.php');
+  $id=$_SESSION['uid'];
   $stmt = $db->prepare("UPDATE application SET name=:name, email=:email, year=:year, sex=:sex, limb=:limb, bio=:bio WHERE id=:id");
   $cols=array(
     ':name'=>$name,
@@ -257,7 +258,7 @@ if (!empty($_COOKIE[session_name()]) && !empty($_SESSION['login'])) {
 else{
   if(!$errors){
   include('connect.php');
-  $login = 'u'.substr(uniqid(),0,-5);
+  $login = 'u'.substr(uniqid(),-5);
   $pass = substr(md5(rand(0,2000)),0,7);
   $pass_hash=password_hash($pass,PASSWORD_DEFAULT);
   setcookie('login', $login);
