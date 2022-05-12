@@ -21,6 +21,7 @@
     }
 </style>
 <?php
+require 'connect.php';
 /**
  * Задача 6. Реализовать вход администратора с использованием
  * HTTP-авторизации для просмотра и удаления результатов.
@@ -40,6 +41,24 @@ if (empty($_SERVER['PHP_AUTH_USER']) ||
 }
 
 print('Вы успешно авторизовались и видите защищенные паролем данные.');
+
+$users=array();
+$pwrs=array();
+$pwr_def=array('Бессмертие','Прохождение сквозь стены','Левитация');
+$pwrs_count=array();
+try{
+  $count=$db->prepare("select count(*) from powers where name_p=?");
+  foreach($pwr_def as $pw){
+    $i=0;
+    $count->execute(array($pw));
+    $pwrs_count[]=$count->fetchAll()[$i][0];
+    $i++;
+  }
+}
+catch(PDOException $e){
+  print('Error: '.$e->getMessage());
+  exit();
+}
 ?>
 <?php
     require 'connect.php';
@@ -89,6 +108,11 @@ print('Вы успешно авторизовались и видите защи
             }
         ?>
     </table>
+    <?php
+    printf('Кол-во пользователей с сверхспособностью "Бессмертие": %d <br>',$pwrs_count[0]);
+    printf('Кол-во пользователей с сверхспособностью "Прохождение сквозь стены": %d <br>',$pwrs_count[1]);
+    printf('Кол-во пользователей с сверхспособностью "Левитация": %d <br>',$pwrs_count[2])
+    ?>
 </body>
 <?php    // *********
 // Здесь нужно прочитать отправленные ранее пользователями данные и вывести в таблицу.
