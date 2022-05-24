@@ -66,7 +66,37 @@
         <textarea name="bio"><?php print $values['bio']; ?></textarea>
         <br>
 
+        <?php 
+        $cl_e='';
+        $ch='';
+        if($values['contract'] or !empty($_SESSION['login'])){
+        $ch='checked';
+        }
+        if ($errors['contract']) {
+        $cl_e='class="error"';
+        }
+        if(empty($_SESSION['login'])){
+        print('<div  '.$cl_e.' >
+        <input name="check" type="checkbox" '.$ch.'> Вы ознакомились с контрактом? <br>
+        </div>');}
+        ?>
+
         <input type="submit" value="Отправить"/>
         </form>
+
+        <?php
+            if(empty($_SESSION['login'])){
+            echo '
+            <div class="login">
+                <p>Если у вас есть аккаунт, вы можете <a href="login.php">войти</a></p>
+            </div>';
+            }
+            else{
+            echo '
+            <div class="logout">
+            <a href="logout.php" name="logout">Выйти</a>
+            </div>';
+            }
+        ?>
     </div>
 </body>
